@@ -13,10 +13,13 @@ namespace WebDeveloper.Model
             BusinessEntityContact = new HashSet<BusinessEntityContact>();
             EmailAddress = new HashSet<EmailAddress>();
             PersonPhone = new HashSet<PersonPhone>();
+            
         }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+
+
         public int BusinessEntityID { get; set; }
 
         [Required]
@@ -54,16 +57,18 @@ namespace WebDeveloper.Model
         public string Demographics { get; set; }
 
         public Guid rowguid { get; set; }
-        
 
-        public virtual BusinessEntity BusinessEntity { get; set; }
-        
+
+        //public virtual BusinessEntity BusinessEntity { get; set; }
+
         public virtual ICollection<BusinessEntityContact> BusinessEntityContact { get; set; }
 
         public virtual ICollection<EmailAddress> EmailAddress { get; set; }
 
-        public virtual Password Password { get; set; }
+        //public virtual Password Password { get; set; }
 
         public virtual ICollection<PersonPhone> PersonPhone { get; set; }
+
+
     }
 }

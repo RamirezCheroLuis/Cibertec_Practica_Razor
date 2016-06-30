@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace WebDeveloper.DataAccess
 {
@@ -16,7 +17,10 @@ namespace WebDeveloper.DataAccess
 
         public List<T> GetList()
         {
-            return new List<T>();
+            using (var dbContext = new WebContextDb())
+            {
+                return dbContext.Set<T>().ToList();
+            }
         }
 
         public int Update(T entity)
