@@ -7,13 +7,13 @@ using WebDeveloper.Model;
 
 namespace WebDeveloper.DataAccess
 {
-    public class PersonData : BaseDataAccess<Person>
+    public class ContactTypeData : BaseDataAccess<ContactType>
     {
-        public Person GetPerson(int id)
+        public ContactType GetContactType(int id)
         {
             using (var dbContext = new WebContextDb())
             {
-                return dbContext.Persons.FirstOrDefault(x => x.BusinessEntityID == id);
+                return dbContext.ContactTypes.FirstOrDefault(x => x.ContactTypeID == id);
             }
         }
     }

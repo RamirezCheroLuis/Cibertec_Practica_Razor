@@ -15,14 +15,15 @@ namespace WebDeveloper.Model
         {
             BusinessEntityContact = new HashSet<BusinessEntityContact>();
         }
-
+        
         public int ContactTypeID { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-
-        public DateTime ModifiedDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime ModifiedDate { get; set; } 
 
         
         public virtual ICollection<BusinessEntityContact> BusinessEntityContact { get; set; }

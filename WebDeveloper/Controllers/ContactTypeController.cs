@@ -8,25 +8,25 @@ using WebDeveloper.Model;
 
 namespace WebDeveloper.Controllers
 {
-    public class PersonController : Controller
+    public class ContactTypeController : Controller
     {
         // GET: Person
-        PersonData _person = new PersonData();
+        ContactTypeData _contact = new ContactTypeData();
         public ActionResult Index()
         {
-
-            return View(_person.GetList());
+            
+            return View(_contact.GetList());
         }
         public ActionResult Create()
         {
-            return View(new Person());
+            return View(new ContactType());
         }
         [HttpPost]
-        public ActionResult Create(Person client)
+        public ActionResult Create(ContactType client)
         {
             if (ModelState.IsValid)
             {
-                _person.Add(client);
+                _contact.Add(client);
                 return RedirectToAction("Index");
             }
             return View();
@@ -34,7 +34,7 @@ namespace WebDeveloper.Controllers
 
         public ActionResult Edit(int ID)
         {
-            Person cliente = _person.GetPerson(ID);
+            ContactType cliente = _contact.GetContactType(ID);
             if (cliente == null)
             {
                 return RedirectToAction("Index");
@@ -42,18 +42,18 @@ namespace WebDeveloper.Controllers
             return View(cliente);
         }
         [HttpPost]
-        public ActionResult Edit(Person client)
+        public ActionResult Edit(ContactType client)
         {
             if (ModelState.IsValid)
             {
-                _person.Update(client);
+                _contact.Update(client);
                 return RedirectToAction("Index");
             }
             return View();
         }
         public ActionResult Delete(int id)
         {
-            var client = _person.GetPerson(id);
+            var client = _contact.GetContactType(id);
             if (client == null)
             {
                 return RedirectToAction("Index");
@@ -62,9 +62,9 @@ namespace WebDeveloper.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(Person client)
+        public ActionResult Delete(ContactType client)
         {
-            if (_person.Delete(client) > 0)
+            if (_contact.Delete(client) > 0)
             {
                 return RedirectToAction("Index");
             }
@@ -72,7 +72,7 @@ namespace WebDeveloper.Controllers
         }
         public ActionResult Details(int id)
         {
-            var client = _person.GetPerson(id);
+            var client = _contact.GetContactType(id);
             if (client == null)
             {
                 return RedirectToAction("Index");

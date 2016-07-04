@@ -16,7 +16,8 @@ namespace WebDeveloper.DataAccess
             //Database.SetInitializer(new WebDeveloperInitializer());
         }
         public DbSet<Person> Persons { get; set; }
-         
+        public DbSet<ContactType> ContactTypes { get; set; }
+        public DbSet<AddressType> AddressTypes { get; set; }
 
         //Vamos a conf para que no salga en plural
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
